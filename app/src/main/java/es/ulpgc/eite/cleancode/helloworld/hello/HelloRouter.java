@@ -27,12 +27,12 @@ public class HelloRouter implements HelloContract.Router {
 
   @Override
   public void passDataToByeScreen(HelloToByeState state) {
-    // no implemented
+    //TODO: no implemented
   }
 
   @Override
   public void navigateToByeScreen() {
-    // no implemented
+    //TODO: no implemented
   }
 
 }
