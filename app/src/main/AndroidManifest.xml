@@ -6,11 +6,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".app.AppMediator"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
 
         <activity android:name=".hello.HelloActivity">
             <intent-filter>
@@ -19,8 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".bye.ByeActivity">
-        </activity>
+        <!--<activity android:name=".bye.ByeActivity"/>-->
 
     </application>
 

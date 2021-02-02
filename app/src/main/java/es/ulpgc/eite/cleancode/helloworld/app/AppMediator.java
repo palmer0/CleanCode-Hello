@@ -1,15 +1,34 @@
 package es.ulpgc.eite.cleancode.helloworld.app;
 
-import android.app.Application;
-
 import es.ulpgc.eite.cleancode.helloworld.hello.HelloState;
 
-public class AppMediator extends Application {
+public class AppMediator {
 
   private HelloState helloState = new HelloState();
 
   private HelloToByeState helloToByeState;
   private ByeToHelloState byeToHelloState;
+
+
+  private static AppMediator INSTANCE;
+
+  private AppMediator() {
+
+  }
+
+  public static void resetInstance() {
+    INSTANCE = null;
+  }
+
+
+  public static AppMediator getInstance() {
+    if(INSTANCE ==null){
+      INSTANCE = new AppMediator();
+    }
+
+    return INSTANCE;
+  }
+
 
   /*
   @Override

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.helloworld.R;
+import es.ulpgc.eite.cleancode.helloworld.app.AppMediator;
 
 
 public class HelloActivity
@@ -51,6 +52,10 @@ public class HelloActivity
 
     sayHelloButton.setText(getSayHelloButtonLabel());
     goByeButton.setText(getGoByeButtonLabel());
+
+    if(savedInstanceState == null) {
+      AppMediator.resetInstance();
+    }
 
     // do the setup
     HelloScreen.configure(this);
