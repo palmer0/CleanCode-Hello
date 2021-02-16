@@ -9,7 +9,6 @@ public class AppMediator {
   private HelloToByeState helloToByeState;
   private ByeToHelloState byeToHelloState;
 
-
   private static AppMediator INSTANCE;
 
   private AppMediator() {
@@ -19,7 +18,6 @@ public class AppMediator {
   public static void resetInstance() {
     INSTANCE = null;
   }
-
 
   public static AppMediator getInstance() {
     if(INSTANCE == null){
@@ -52,6 +50,4 @@ public class AppMediator {
   public void setByeToHelloState(ByeToHelloState state) {
     this.byeToHelloState = state;
   }
-
-
 }
