@@ -38,8 +38,6 @@ public class HelloPresenter implements HelloContract.Presenter {
   private void startHelloMessageAsyncTask() {
     //Log.e(TAG, "startHelloMessageAsyncTask()");
 
-    //String message=model.getHelloMessage();
-    //state.helloMessage = message;
     state.helloMessage = model.getHelloMessage();
 
     view.get().displayHelloData(state);
