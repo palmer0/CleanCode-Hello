@@ -2,7 +2,6 @@ package es.ulpgc.eite.cleancode.helloworld.hello;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -34,21 +33,9 @@ public class HelloActivity
     goByeButton = findViewById(R.id.goByeButton);
     helloMessage = findViewById(R.id.helloMessage);
 
-    sayHelloButton.setOnClickListener(new View.OnClickListener() {
+    sayHelloButton.setOnClickListener(v -> presenter.sayHelloButtonClicked());
 
-      @Override
-      public void onClick(View v) {
-        presenter.sayHelloButtonClicked();
-      }
-    });
-
-    goByeButton.setOnClickListener(new View.OnClickListener() {
-
-      @Override
-      public void onClick(View v) {
-        presenter.goByeButtonClicked();
-      }
-    });
+    goByeButton.setOnClickListener(v -> presenter.goByeButtonClicked());
 
     sayHelloButton.setText(getSayHelloButtonLabel());
     goByeButton.setText(getGoByeButtonLabel());
@@ -62,19 +49,12 @@ public class HelloActivity
 
   }
 
-
   @Override
   protected void onResume() {
     super.onResume();
 
     // do some work
     presenter.onResumeCalled();
-  }
-
-
-  @Override
-  public void injectPresenter(HelloContract.Presenter presenter) {
-    this.presenter = presenter;
   }
 
   @Override
@@ -94,4 +74,8 @@ public class HelloActivity
     return getResources().getString(R.string.say_hello_button_label);
   }
 
+  @Override
+  public void injectPresenter(HelloContract.Presenter presenter) {
+    this.presenter = presenter;
+  }
 }

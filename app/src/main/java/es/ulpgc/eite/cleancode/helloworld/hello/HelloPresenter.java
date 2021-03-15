@@ -20,16 +20,6 @@ public class HelloPresenter implements HelloContract.Presenter {
     state = mediator.getHelloState();
   }
 
-  @Override
-  public void injectView(WeakReference<HelloContract.View> view) {
-    this.view = view;
-  }
-
-  @Override
-  public void injectModel(HelloContract.Model model) {
-    this.model = model;
-  }
-
 
   @Override
   public void onResumeCalled() {
@@ -48,8 +38,9 @@ public class HelloPresenter implements HelloContract.Presenter {
   private void startHelloMessageAsyncTask() {
     //Log.e(TAG, "startHelloMessageAsyncTask()");
 
-    String message=model.getHelloMessage();
-    state.helloMessage = message;
+    //String message=model.getHelloMessage();
+    //state.helloMessage = message;
+    state.helloMessage = model.getHelloMessage();
 
     view.get().displayHelloData(state);
   }
@@ -77,11 +68,7 @@ public class HelloPresenter implements HelloContract.Presenter {
   }
 
   private ByeToHelloState getDataFromByeScreen() {
-    if (mediator != null) {
-      return mediator.getByeToHelloState();
-    }
-
-    return null;
+    return mediator.getByeToHelloState();
   }
 
   private void passDataToByeScreen(HelloToByeState state) {
@@ -92,4 +79,13 @@ public class HelloPresenter implements HelloContract.Presenter {
     //TODO: no implemented
   }
 
+  @Override
+  public void injectView(WeakReference<HelloContract.View> view) {
+    this.view = view;
+  }
+
+  @Override
+  public void injectModel(HelloContract.Model model) {
+    this.model = model;
+  }
 }
